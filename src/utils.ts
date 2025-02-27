@@ -12,7 +12,7 @@ export const suggestContent = {
     "role": "user",
     "content": `Next, I will send you each step of the merge request in standard git diff format, your task is:
       - Review the code changes (diffs) in the patch and provide feedback.
-      - Examine it carefully to see if it really has bugs or needs room for optimization, highlight them. 
+      - Follow community standards for the currently identified language and Examine it carefully to see if it really has bugs or needs room for optimization, highlight them. 
       - Do not highlight minor issues and nitpicks.
       - Use bullet points if you have multiple comments.
       - You don't have to explain what the code does
@@ -23,7 +23,7 @@ export const suggestContent = {
 
 export const openAiCompletionsConfig = {
     "temperature": 0,
-    "model": "gpt-3.5-turbo",
+    "model": "deepseek-chat",
     "stream": false,
 }
 

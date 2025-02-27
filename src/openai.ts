@@ -37,12 +37,17 @@ export class OpenAI {
                 content: change
             }
         ];
-        const response = await this.apiClient.post('/v1/chat/completions', data, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${this.accessTokens[newIndex]}`
-            }
-        });
-        return response.data.choices?.[0]?.message?.content;
+        try {
+            const response = await this.apiClient.post('/chat/completions', data, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${this.accessTokens[newIndex]}`
+                }
+            });
+            return response.data.choices?.[0]?.message?.content;
+        }catch (e){
+            console.log(e);
+        }
+        return "ERROR"
     }
 }

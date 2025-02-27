@@ -47,7 +47,9 @@ async function run() {
                 const lineObj = getLineObj(matches, item);
                 if ((lineObj?.new_line && lineObj?.new_line > 0) || (lineObj.old_line && lineObj.old_line > 0)) {
                     try {
+                        console.log(item);
                         const suggestion = await openai.reviewCodeChange(item);
+                        console.log(suggestion)
                         if (!suggestion.includes('666')) {
                             await gitlab.addReviewComment(lineObj, change, suggestion);
                         }
@@ -66,4 +68,6 @@ async function run() {
 }
 
 module.exports = run;
+
+run()
 
